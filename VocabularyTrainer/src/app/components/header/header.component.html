@@ -1,42 +1,41 @@
 
-<div class="row">
-  <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Vocabulary Trainer</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a href="#" class="nav-link active">Home</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav justify-content-end">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item me-3 ">
-            <a href="#" class="nav-link">Register</a>
-          </li>
-        </ul>
-        <form class="d-flex ">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="button">Search</button>
-        </form>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">Vocabulary Trainer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/home" routerLinkActive="active">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active">Word list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active">Training</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-3 align-content-end">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+      </form>
     </div>
-  </nav>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</nav>
