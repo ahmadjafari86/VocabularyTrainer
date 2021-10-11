@@ -1,1 +1,17 @@
 
+#wordForm{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+}
+#col11,#col22{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+#tableView{
+  border-style:solid;
+  border-color: green;
+
+}

@@ -6,27 +6,27 @@
 
     <!--////////////////////////////////////// Word section of screen /////////////////////////////////////////-->
 
-    <div class="col ">
+    <div class="col " >
 
       <!-- Database section -->
 
       <div class="row " >
-        <label style="margin-bottom: 7px" for="databaseForm"><h5>Database:</h5></label>
+        <label style="margin-bottom: 7px" for="databaseForm" class="display-6 bg-success">Database:</label>
 
-        <div class="row " >
-            <div class="btn-group dropdown w-auto ">
-              <button class="btn btn-danger " type="button"><span class="sr-only">Load database</span></button>
-              <button class="btn btn-danger dropdown-toggle dropdown-toggle-split " type="button"
-                      id="dropDownButtonMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropDownButtonMenu1">
-                <li *ngFor="let database of databaseList" [value]="database.id"
-                    class="dropdown-item" ><a class="nav-link" routerLink="/notFound">{{database.name}}</a></li>
-              </ul>
-            </div>
-            <button class="btn btn-success w-auto me-3" type="button">Add new</button>
-            <button class="btn btn-danger w-auto me-3" type="button">Delete</button>
-            <input type="text" name="dbName" value="" class="form-control input-lg w-auto" placeholder="Database name"/>
+        <div class="row mt-2 " id="databaseForm" >
+          <div class="btn-group dropdown w-auto ">
+            <button class="btn btn-danger " type="button"><span class="sr-only">Load database</span></button>
+            <button class="btn btn-danger dropdown-toggle dropdown-toggle-split " type="button"
+                    id="dropDownButtonMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropDownButtonMenu1">
+              <li *ngFor="let database of databaseList" [value]="database.id"
+                  class="dropdown-item" ><a class="nav-link" routerLink="/notFound">{{database.name}}</a></li>
+            </ul>
+          </div>
+          <button class="btn btn-success w-auto me-3" type="button">Add new</button>
+          <button class="btn btn-danger w-auto me-3" type="button">Delete</button>
+          <input type="text" name="dbName" value="" class="form-control input-lg w-auto" placeholder="Database name"/>
         </div>
 
         <div class="row mt-3">
@@ -42,34 +42,131 @@
 
       <!-- Word section -->
 
-      <div class="row">
-        <label style="margin-bottom: 7px" for="wordForm"><h5>Word:</h5></label>
-        
+      <div class="row ">
+        <label style="margin-bottom: 7px" for="wordForm" class="display-6 bg-warning">Word:</label>
 
+        <div class="row mt-2" id="wordForm">
+          <input type="text" name="word" value="" class="form-control ms-3 w-auto" placeholder="Word">
+          <button class="btn btn-success w-auto ms-3" type="button"><))</button>
+          <div class="col-3 ms-3"  id="col11">
+            <label  class="form-label mt-1">Fluence: <span class="badge bg-danger">{{fluencyRange}}</span></label>
+          </div>
+          <div class="col" id="col22">
+            <input (input)="getRange($event)" type="range" class="form-range" value="0" min="0" max="100" step="1" id="fluencyRange">
+          </div>
+        </div>
+        <div class="row">
+          <input type="text" name="englishTranslation" value="" class="form-control ms-3 mt-3 " placeholder="English translation">
+        </div>
+        <div class="row">
+          <input type="text" name="nativeTranslation" value="" class="form-control ms-3 mt-3 " placeholder="Native translation">
+        </div>
+        <div class="row ">
+          <textarea class="form-control ms-3 mt-3" rows="5" id="comment" placeholder="Write your explanation here..."></textarea>
+        </div>
 
-      </div>
+      </div><hr>
 
       <!-- Buttons section -->
 
-      <div class="row">
+      <div class="row ">
+        <div class="col" >
+          <button class="btn btn-success w-100" type="button">Add</button>
+        </div>
       </div>
+
     </div>
 
     <!--////////////////////////////////////// View table section of screen /////////////////////////////////////////-->
 
-    <div class="col bg-primary">
+    <div class="col " id="tableView">
+
+
+      <div class="row bg-light " >
+        <label style="margin-bottom: 7px" for="tableView" class="display-6 bg-light ">Word List:</label>
+      </div>
+
+      <div class="row">
+
+          <table class="table table-striped table-light " >
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+
+            </tbody>
+          </table>
+
+      </div>
 
     </div>
-
-    <!--////////////////////////////////////// Communication section of screen //////////////////////////////////////-->
-
-    <div class="col-lg-2 bg-danger">
-
-    </div>
-
-
 
 
   </div>
+
 </div>
+
+
 

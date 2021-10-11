@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-wordlist',
@@ -16,6 +16,11 @@ export class WordlistComponent implements OnInit {
     {id:2, name:'Intermediate'},
     {id:3, name:'Advanced'}
   ];
+  fluencyRange:any = 0;
+
+  getRange(event: Event){
+    this.fluencyRange = (<HTMLInputElement>event.target).value;
+  }
   constructor() { }
 
   ngOnInit(): void {
