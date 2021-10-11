@@ -2,88 +2,74 @@
 <div class="container-fluid">
 
   <!--//////////////////////////////////////////// Main screen ////////////////////////////////////////////////////-->
+  <div class="row mt-5">
 
-  <div class="row">
+    <!--////////////////////////////////////// Word section of screen /////////////////////////////////////////-->
 
-    <!--/////////////////////////////////////// Word list section of screen /////////////////////////////////////////-->
-
-    <div class="col">
+    <div class="col ">
 
       <!-- Database section -->
 
-      <div class="row border border-primary">
+      <div class="row " >
+        <label style="margin-bottom: 7px" for="databaseForm"><h5>Database:</h5></label>
 
-        <div class="row  mt-3">
-
-          <div class="col">
-            <div class="btn-group dropdown ">
+        <div class="row " >
+            <div class="btn-group dropdown w-auto ">
               <button class="btn btn-danger " type="button"><span class="sr-only">Load database</span></button>
-              <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" type="button"
+              <button class="btn btn-danger dropdown-toggle dropdown-toggle-split " type="button"
                       id="dropDownButtonMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropDownButtonMenu1">
                 <li *ngFor="let database of databaseList" [value]="database.id"
-                    class="dropdown-item" >{{database.name}}</li>
+                    class="dropdown-item" ><a class="nav-link" routerLink="/notFound">{{database.name}}</a></li>
               </ul>
             </div>
-          </div>
-          <div class="col">
-            <button class="btn btn-success" type="button"><span class="sr-only">Build database</span></button>
-          </div>
-
+            <button class="btn btn-success w-auto me-3" type="button">Add new</button>
+            <button class="btn btn-danger w-auto me-3" type="button">Delete</button>
+            <input type="text" name="dbName" value="" class="form-control input-lg w-auto" placeholder="Database name"/>
         </div>
 
         <div class="row mt-3">
-          <div class="col">
-            <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="Word"/>
-          </div>
-          <div class="col">
-            <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"/>
-          </div>
+          <select class="form-select w-auto ms-3" aria-label="wordListSelectBox">
+            <option *ngFor="let database of databaseList" [value]="database.id">{{database.name}}</option>
+          </select>
+          <button class="btn btn-success w-auto me-3 ms-4" type="button">Add new</button>
+          <button class="btn btn-danger w-auto me-3" type="button">Delete</button>
+          <input type="text" name="dbName" value="" class="form-control input-lg w-auto" placeholder="Word list name"/>
         </div>
 
+      </div> <hr>
 
-      </div>
+      <!-- Word section -->
 
       <div class="row">
+        <label style="margin-bottom: 7px" for="wordForm"><h5>Word:</h5></label>
+        
 
+
+      </div>
+
+      <!-- Buttons section -->
+
+      <div class="row">
       </div>
     </div>
 
-    <!-- Word section -->
+    <!--////////////////////////////////////// View table section of screen /////////////////////////////////////////-->
 
-    <div class="row">
+    <div class="col bg-primary">
+
     </div>
 
-    <!-- Buttons section -->
+    <!--////////////////////////////////////// Communication section of screen //////////////////////////////////////-->
 
-    <div class="row">
+    <div class="col-lg-2 bg-danger">
+
     </div>
-  </div>
 
-  <!--////////////////////////////////////// View table section of screen /////////////////////////////////////////-->
 
-  <div class="col">
+
 
   </div>
-
-  <!--////////////////////////////////////// Communication section of screen //////////////////////////////////////-->
-
-  <div class="col">
-
-  </div>
-
-
-
-
-
-  <div class="form-group border border-primary">
-    <label for="category" >Select Language</label>
-    <select name="languages" id="category" class="form-control dropdown-toggle ">
-      <option value=""></option>
-      <option *ngFor="let language of languages" [value]="language.id">{{language.name}}</option>
-    </select>
-  </div>
-
-
 </div>
+
