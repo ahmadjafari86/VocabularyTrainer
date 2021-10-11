@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AboutComponent } from './components/about/about.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { WordlistComponent } from './components/wordlist/wordlist.component';
+import { WordtrainingComponent } from './components/wordtraining/wordtraining.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    PagenotfoundComponent,
+    WordlistComponent,
+    WordtrainingComponent
   ],
   imports: [
     BrowserModule,
