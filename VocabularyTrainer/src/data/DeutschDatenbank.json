@@ -1,0 +1,37 @@
+{
+  "elementary": [
+    {
+      "id":"0",
+      "word": "sonne",
+      "englishMeaning": "sun",
+      "farsiMeaning": "آفتاب",
+      "fluence":"63",
+      "explanation": "my life dependency"
+
+    },
+    {
+      "id":"1",
+      "word": "wind",
+      "englishMeaning": "wind",
+      "farsiMeaning": "باد",
+      "fluence":"94",
+      "explanation": "plants loves it"
+
+    },
+    {
+      "id":"2",
+      "word": "feuer",
+      "englishMeaning": "fire",
+      "farsiMeaning": "آتش",
+      "fluence":"38",
+      "explanation": "we need it for cooking foods"
+
+    }
+  ],
+  "intermediate": [
+
+  ],
+  "advanced": [
+
+  ]
+}
