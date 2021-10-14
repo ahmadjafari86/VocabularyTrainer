@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/internal/operators";
 
 import {PostModel} from "../../models/post.model";
+import {PostsService} from "../../services/posts.service";
 
 @Component({
   selector: 'app-wordtraining',
@@ -12,40 +12,31 @@ import {PostModel} from "../../models/post.model";
 export class WordtrainingComponent implements OnInit {
   loadedPosts:PostModel[]=[];
   isFetching = false;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private postsService:PostsService) { }
   ngOnInit(): void {
     this.fetchPosts();
   }
 
   onCreatePost(postData:PostModel){
-    this.http.post('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json',
-      postData).subscribe(responseData=>{console.log(responseData);
-      });
+    this.postsService.createAndStorePost(postData);
   }
   onFetchPosts(){
      this.fetchPosts();
   }
 
+private fetchPosts(){
+  this.isFetching=true;
+  this.postsService.fetchPosts().subscribe(posts=>{
+    this.isFetching=false;
+    this.loadedPosts=posts;
+  });
+}
   onClearPosts(){
-
+     this.postsService.deletePosts().subscribe(()=>{
+       this.loadedPosts = [];
+     });
   }
 
-  private fetchPosts(){
-    this.isFetching = true;
-    this.http.get<{[key:string]:PostModel}>('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json')
-      .pipe(map(responseData=>{
-        const postsArray:PostModel[] =[];
-        for (const key in responseData){
-          if (responseData.hasOwnProperty(key)){
-            postsArray.push({...responseData[key],id:key});
-          }
-        }
-        return postsArray;
-      }))
-      .subscribe(posts=>{this.loadedPosts=posts;
-      this.isFetching = false;
-      });
-  }
 
 
 }

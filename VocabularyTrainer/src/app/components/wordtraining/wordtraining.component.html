@@ -5,13 +5,13 @@
       <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
 
         <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" class="form-control" id="title" required ngModel name="title"/>
+          <label for="word">Word</label>
+          <input type="text" class="form-control" id="word" required ngModel name="word"/>
         </div>
 
         <div class="form-group mt-3">
-          <label for="content">Content</label>
-          <textarea class="form-control" id="content" required ngModel name="content"></textarea>
+          <label for="englishMeaning">English Meaning</label>
+          <textarea class="form-control" id="englishMeaning" required ngModel name="englishMeaning"></textarea>
         </div>
         <button class="btn btn-primary mt-3" type="submit" [disabled]="!postForm.valid">Send Post</button>
       </form>
