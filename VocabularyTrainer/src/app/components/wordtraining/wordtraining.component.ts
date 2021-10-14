@@ -2,19 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/internal/operators";
 
+import {PostModel} from "../../models/post.model";
+
 @Component({
   selector: 'app-wordtraining',
   templateUrl: './wordtraining.component.html',
   styleUrls: ['./wordtraining.component.css']
 })
 export class WordtrainingComponent implements OnInit {
-  loadedPosts=[];
+  loadedPosts:PostModel[]=[];
+  isFetching = false;
   constructor(private http:HttpClient) { }
   ngOnInit(): void {
     this.fetchPosts();
   }
 
-  onCreatePost(postData:{word:string;englishMeaning:string}){
+  onCreatePost(postData:PostModel){
     this.http.post('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json',
       postData).subscribe(responseData=>{console.log(responseData);
       });
@@ -28,19 +31,20 @@ export class WordtrainingComponent implements OnInit {
   }
 
   private fetchPosts(){
-    this.http.get('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json')
+    this.isFetching = true;
+    this.http.get<{[key:string]:PostModel}>('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json')
       .pipe(map(responseData=>{
-        const postsArray =[];
+        const postsArray:PostModel[] =[];
         for (const key in responseData){
           if (responseData.hasOwnProperty(key)){
-            // @ts-ignore
             postsArray.push({...responseData[key],id:key});
           }
         }
         return postsArray;
       }))
-      .subscribe(posts=>{console.log(posts);
-    });
+      .subscribe(posts=>{this.loadedPosts=posts;
+      this.isFetching = false;
+      });
   }
 
 
