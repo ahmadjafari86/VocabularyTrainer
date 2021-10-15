@@ -37,7 +37,12 @@
           <p>{{post.englishMeaning}}</p>
         </li>
       </ul>
-      <p *ngIf="isFetching">Loading...</p>
+      <p *ngIf="isFetching && !error">Loading...</p>
+      <div class="alert alert-danger mt-3" *ngIf="error">
+        <h3>An error occurred</h3>
+        <p>{{error}}</p>
+        <button class="btn btn-danger mt-3" (click)="onHandleError()">Okay</button>
+      </div>
     </div>
   </div>
 </div>
