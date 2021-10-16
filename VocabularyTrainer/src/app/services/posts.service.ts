@@ -9,11 +9,11 @@ import {Subject,throwError} from "rxjs";
 })
 export class PostsService {
   errorRxjsSubject = new Subject<string>();
+  private firebaseUrl = 'https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json';
   constructor( private http:HttpClient) { }
 
   createAndStorePost(postData:PostModel){
-    this.http.post('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json',
-      postData).subscribe(
+    this.http.post(this.firebaseUrl, postData).subscribe(
       responseData=>{console.log(responseData);},
       error =>{this.errorRxjsSubject.next(error.message);}
     );
@@ -23,7 +23,7 @@ export class PostsService {
     searchParams = searchParams.append('print','pretty');
     searchParams = searchParams.append('custom','key');
     return this.http
-      .get<{[key:string]:PostModel}>('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json',{
+      .get<{[key:string]:PostModel}>(this.firebaseUrl,{
         headers: new HttpHeaders({'Custom-header':'Hello'}),
         params: searchParams
       })
@@ -41,6 +41,6 @@ export class PostsService {
   }
 
   deletePosts(){
-    return this.http.delete('https://vocabulary-trainer-2021-default-rtdb.firebaseio.com/posts.json');
+    return this.http.delete(this.firebaseUrl);
   }
 }
